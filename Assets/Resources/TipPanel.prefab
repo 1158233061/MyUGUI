@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4069793489885652139}
   - component: {fileID: 5927665664731330472}
-  - component: {fileID: 5010977732073016746}
   m_Layer: 5
   m_Name: TipPanel
   m_TagString: Untagged
@@ -49,18 +48,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504762650545345158}
   m_CullTransparentMesh: 0
---- !u!225 &5010977732073016746
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504762650545345158}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &1735614912417354202
 GameObject:
   m_ObjectHideFlags: 0

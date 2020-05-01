@@ -25,14 +25,9 @@ public class TipPanel : BasePanel
             text.text = (string)para[0];
         }
     }
-
-    public override void OnClose()
-    {
-        base.OnClose();
-    }
  
     public void OnOkClick()
     {
-        Close();
+        PanelManager.PopPanel();
     }
 }

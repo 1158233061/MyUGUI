@@ -24,6 +24,8 @@ public class RegisterPanel : BasePanel
         regBtn = skin.transform.Find("RegisterBtn").GetComponent<Button>();
         closeBtn = skin.transform.Find("CloseBtn").GetComponent<Button>();
 
+        canvasGroup = skin.transform.GetComponent<CanvasGroup>();
+
         regBtn.onClick.AddListener(OnRegClick);
         closeBtn.onClick.AddListener(OnCloseClick);
     }
@@ -36,17 +38,25 @@ public class RegisterPanel : BasePanel
     {
         if (idInput.text == "" || pwInput.text == "")
         {
-            PanelManager.Open<TipPanel>("用户名和密码不能为空");
+            PanelManager.PushPanel<TipPanel>("用户名和密码不能为空");
             return;
         }
         if (pwInput.text != repInput.text)
         {
-            PanelManager.Open<TipPanel>("两次输入的密码不同");
+            PanelManager.PushPanel<TipPanel>("两次输入的密码不同");
             return;
         }
     }
     public void OnCloseClick()
     {
-        Close();
+        PanelManager.PopPanel();
+    }
+    public override void OnPause()
+    {
+        canvasGroup.blocksRaycasts = false;
+    }
+    public override void OnResume()
+    {
+        canvasGroup.blocksRaycasts = true;
     }
 }

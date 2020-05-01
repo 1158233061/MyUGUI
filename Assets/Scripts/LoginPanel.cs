@@ -10,6 +10,7 @@ public class LoginPanel : BasePanel
     private InputField pwInput;
     private Button loginBtn;
     private Button regBtn;
+
     public override void OnInit()
     {
         skinPath = "LoginPanel";
@@ -22,6 +23,8 @@ public class LoginPanel : BasePanel
         loginBtn = skin.transform.Find("LoginBtn").GetComponent<Button>();
         regBtn = skin.transform.Find("RegisterBtn").GetComponent<Button>();
 
+        canvasGroup = skin.transform.GetComponent<CanvasGroup>();
+
         loginBtn.onClick.AddListener(OnLoginClick);
         regBtn.onClick.AddListener(OnRegClick);
     }
@@ -30,17 +33,25 @@ public class LoginPanel : BasePanel
     {
         if (idInput.text == "" || pwInput.text == "")
         {
-            PanelManager.Open<TipPanel>("用户名和密码不能为空");
+            PanelManager.PushPanel<TipPanel>("用户名和密码不能为空");
             return;
         }
     }
     public void OnRegClick()
     {
-        PanelManager.Open<RegisterPanel>();
+        PanelManager.PushPanel<RegisterPanel>();
     }
 
     public override void OnClose()
     {
         base.OnClose();
+    }
+    public override void OnPause()
+    {
+        canvasGroup.blocksRaycasts = false;
+    }
+    public override void OnResume()
+    {
+        canvasGroup.blocksRaycasts = true;
     }
 }

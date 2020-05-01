@@ -8,7 +8,7 @@ public class test : MonoBehaviour
     void Start()
     {
         PanelManager.Init();
-        PanelManager.Open<LoginPanel>();
+        PanelManager.PushPanel<LoginPanel>();
     }
 
     // Update is called once per frame
